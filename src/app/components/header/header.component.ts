@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
-  submitHandler(evt: Event) {
+  submitHandler(evt) {
     evt.preventDefault();
     this.router.navigate(["/movies"], { queryParams: { q: this.queryTerm } });
   }

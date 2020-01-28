@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
+import { MovieService } from "./../../services/movie.service";
 
 @Component({
   selector: "app-movie-list",
@@ -7,25 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ["./movie-list.component.scss"]
 })
 export class MovieListComponent implements OnInit {
-  movies: any[];
-  constructor(private ar:ActivatedRoute) {}
+  movies: any[] = [];
+  constructor(private ar: ActivatedRoute, private ms: MovieService) {}
 
   ngOnInit() {
- 
-    
-    this.movies = [
-      {
-        Title: "Star Wars",
-        Year: 2018,
-        Poster:
-          "https://i.pinimg.com/236x/b2/b8/e5/b2b8e5daddd56ccf4d9846994160e915.jpg"
-      },
-      {
-        Title: "Venom",
-        Year: 2018,
-        Poster:
-          "https://www.bestmovieposters.co.uk/wp-content/uploads/2019/01/inCmCRl_.jpeg"
-      }
-    ];
+    this.ar.queryParams.subscribe(qr => {
+      this.ms.searchMovies(qr["q"]).subscribe(data => {
+        this.movies = data.Search;
+      });
+    });
   }
 }
