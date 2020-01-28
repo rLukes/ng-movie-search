@@ -1,0 +1,11 @@
+<div class="row">
+  <div *ngFor="let movie of movies" class="card col-md4 col-sm-6 col-xs-12">
+    <div class="alert alert-info">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.Title }}</h5>
+        <p>{{ movie.Year }}</p>
+        <img [src]="movie.Poster" alt="" class="card-img-top" />
+      </div>
+    </div>
+  </div>
+</div>
