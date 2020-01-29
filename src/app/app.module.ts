@@ -7,12 +7,14 @@ import { HomeComponent } from "./components/home/home.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { MovieListComponent } from "./components/movie-list/movie-list.component";
 import { HttpClientModule } from "@angular/common/http";
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieDetailsComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
